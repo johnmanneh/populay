@@ -3,7 +3,29 @@
 
 <body>
     <p1>Test</p1>
-{{ content }}
+{{ name }}
+    <ul>
+    {% for k,v in object.member_choice%}
+        <li> key = {{k}}, value = {{v}}</li>
+        {%endfor%}
+    </ul>
 
+      <ul>
+    {% for v in object%}
+        <li> Name :{{v.surname}}</li>
+        {%endfor%}
+    </ul>
+
+      <ul>
+    {% for v in object%}
+          {{v.surname}}
+        {%for k,i in v.member_choice%}
+          <li>key = {{k}},  value = {{i}}</li>
+          {%endfor%}
+        {%endfor%}
+       
+    </ul>
+    <a href="{% url 'create' %}">Create</a>
+    {% block content %}{% endblock %}
 </body>
 </html>

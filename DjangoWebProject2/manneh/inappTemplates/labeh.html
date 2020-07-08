@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Create Form </title>
+</head>
+<body>
+    <p>First form </p>
+  <form method="POST">
+      {% csrf_token %}
+        {{form.as_p}}
+      <input id="save" type="submit" value="Save" />
+  </form>
+    <a href="{% url 'home' %}">Home</a>
+<hr />
+<hr />
+
+    <form action="./backend" method="post">
+         {% csrf_token %}
+        <!--<input type="text" name="title" />
+        <input type="submit" value="save"/>-->
+    </form>
+<hr />
+
+    <p>Send to backend.</p>
+    <form action="./backend2" method="post">
+       {%  csrf_token %}
+       {{rawform.as_p}}
+      <input id="save" type="submit" value="Save" />
+    </form>
+<hr />
+
+    <br />
+    <br />
+    <p>Form Validation</p>
+     <form action="../create2" method ="POST">
+      {% csrf_token %}
+        {{form2.as_p}}
+      <input id="save" type="submit" value="Save" />
+  </form>
+</body>
+</html>
+ 

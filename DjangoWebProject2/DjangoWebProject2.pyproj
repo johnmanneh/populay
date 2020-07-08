@@ -38,6 +38,9 @@
     <Compile Include="DjangoWebProject2\wsgi.py" />
     <Compile Include="manneh\admin.py" />
     <Compile Include="manneh\apps.py" />
+    <Compile Include="manneh\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="manneh\migrations\__init__.py" />
     <Compile Include="manneh\models.py" />
     <Compile Include="manneh\tests.py" />
@@ -48,10 +51,12 @@
     <Folder Include="DjangoWebProject2\" />
     <Folder Include="manneh\" />
     <Folder Include="manneh\migrations\" />
+    <Folder Include="manneh\inappTemplates\" />
     <Folder Include="manneh\templates\" />
     <Folder Include="manneh\templates\manneh\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="manneh\inappTemplates\labeh.html" />
     <Content Include="manneh\templates\manneh\index.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
