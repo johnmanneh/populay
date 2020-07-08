@@ -22,13 +22,15 @@
         <input type="submit" value="save"/>-->
     </form>
 <hr />
-
+<!--
+    
     <p>Send to backend.</p>
     <form action="./backend2" method="post">
        {%  csrf_token %}
        {{rawform.as_p}}
       <input id="save" type="submit" value="Save" />
     </form>
+-->
 <hr />
 
     <br />
@@ -39,6 +41,19 @@
         {{form2.as_p}}
       <input id="save" type="submit" value="Save" />
   </form>
+
+    <p>Getting form initial form </p>
+    <form action="./backend3" method="post">
+       {%  csrf_token %}
+            {{rawform.as_p}}
+      <input  type="submit" value="Save" />
+    </form>
+
+    {% block content%}
+    {{obj.firstname}}
+    {{obj.surname}}
+    {%endblock%}
+
 </body>
 </html>
  

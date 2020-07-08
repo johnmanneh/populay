@@ -1,7 +1,8 @@
+from django.http import Http404
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from manneh.models import Manneh
-from manneh.forms import MannehForm,RawMannehForm
+from manneh.forms import MannehForm,RawMannehForm,PassingFormInstance
 # Create your views here.
 def manneh(request):
     print(request.GET)
@@ -52,6 +53,7 @@ def backend2(request):
    
     return render(request,'labeh.html',context)
 
+
 ############# Validation
 def mannehformview2(request):
     if request.method == 'POST':
@@ -64,5 +66,31 @@ def mannehformview2(request):
 
     context = {
            'form2':m_forms
+        }
+    return render(request,'labeh.html',context)
+
+#################
+
+def backend3(request):
+   initial_data = {
+       'surname':'This is my name'
+       }
+   obj = Manneh.objects.get(id=1)
+   rawform = PassingFormInstance(request.POST or None, instance = obj )
+   if rawform.is_valid():
+       rawform.save()
+   context = {
+            'rawform':rawform
+     }
+
+   return render(request,'labeh.html',context)
+
+def dynamic(request,id):
+    try:
+        obj = Manneh.objects.get(id=id)
+    except Manneh.DoesNotExist:
+        raise Http404
+    context = {
+        'obj' : obj
         }
     return render(request,'labeh.html',context)
