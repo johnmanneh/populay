@@ -59,7 +59,10 @@ ROOT_URLCONF = 'DjangoWebProject2.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'manneh/inappTemplates')],
+        'DIRS': [
+            os.path.join(BASE_DIR,'manneh/inappTemplates'),
+            os.path.join(BASE_DIR,'blog/templates/blog')
+            ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

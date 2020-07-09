@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+<html>
+    <head>
+        <title>{{ title }}</title>
+        {% load staticfiles %}
+        <link rel="stylesheet" type="text/css" href="{% static 'site.css' %}" />
+    </head>
+    <body>
+        <span class="message">{{ home }}</span>
+        <div><a href="">About</a></div>
+    </body>
+</html>
+{% endblock %}

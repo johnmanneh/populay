@@ -6,15 +6,9 @@
     <title></title>
 </head>
 <body>
-    <p>
-        Deleted
-        
       <ul>
-    {% for v in object%}
-          {{v.surname}}
-        {%for k,i in v.member_choice%}
-          <li>key = {{k}},  value = {{i}}</li>
-          {%endfor%}
+    {% for v in labeh%}
+        <p><a href="{{v.get_absolute_url}}">{{v.id}} -- {{v.surname}}</a></p>
         {%endfor%}
        
     </ul>

@@ -9,18 +9,16 @@ from django.conf.urls import include
 from django.contrib import admin
 admin.autodiscover()
 
+import blog.views as html_view
+
 # Uncomment the next lines to enable the admin:
 # from django.conf.urls import include
 # from django.contrib import admin
 # admin.autodiscover()
-
+######app_name='dynamic'
 urlpatterns = [
     # Examples:
-    url(r'', include('manneh.urls')),
-    url(r'^blog/', include('blog.urls')),
-    # Uncomment the admin/doc line below to enable admin documentation:
-    url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    url(r'^$', html_view.home, name='blog'),
+    url(r'^$', html_view.about, name='about'),
 
-    # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
-]
+    ]

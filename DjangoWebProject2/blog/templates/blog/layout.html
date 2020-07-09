@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'site.css' %}" />
+</head>
+
+<body>
+    <div class="navbar">
+       <a href="/" class="navbar-brand">Seiphulies Blog </a>
+       <a href="{% url 'blog' %}" class="navbar-item">Home</a>
+       <a href="{% url 'about' %}" class="navbar-item">About</a>
+    </div>
+
+    <div class="body-content">
+    {% block content %}{% endblock %}
+        <hr/>
+        <footer>
+            <p>&copy; 2020</p>
+        </footer>
+    </div>
+</body>
+</html>

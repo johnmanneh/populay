@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+
 
 # Create your models here.
 class Manneh(models.Model):
@@ -19,3 +21,6 @@ class Manneh(models.Model):
         max_length=50,
         choices = emptyList,
         default = 'null')
+
+    def get_absolute_url(self):
+        return f'dynamic/{self.id}'  #reverse("dynamic:dynamic",kwargs = {'id':self.id}) 

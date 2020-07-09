@@ -3,6 +3,8 @@
 
 <body>
     <p1>Test</p1>
+     {% block content %}
+    {% endblock %}
 {{ name }}
     <ul>
     {% for k,v in object.member_choice%}
@@ -12,7 +14,7 @@
 
       <ul>
     {% for v in object%}
-        <li> Name :{{v.surname}}</li>
+        <li>Name :{{v.surname}}</li>
         {%endfor%}
     </ul>
 
@@ -26,6 +28,10 @@
        
     </ul>
     <a href="{% url 'create' %}">Create</a>
-    {% block content %}{% endblock %}
+    <p>
+    {% for v in object%}
+        <p>{{v.id}} - <a href="{{ v.get_absolute_url }}"> {{v.surname}}</a ></p>
+        {%endfor%}
+    </p>
 </body>
 </html>

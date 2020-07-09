@@ -3,11 +3,13 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponseRedirect
 from manneh.models import Manneh
 from manneh.forms import MannehForm,RawMannehForm,PassingFormInstance
+
+
 # Create your views here.
 def manneh(request):
     print(request.GET)
     print(request.POST)
-    object = Manneh.objects.all()
+    object = Manneh.objects.all()# get list of object
     context= {
         'name':'john',
         'object': object,
@@ -92,7 +94,8 @@ def dynamic(request,myid):
     except Manneh.DoesNotExist:# handling missing object...
         raise Http404
     context = {
-        'obj' : obj
+        'obj' : obj,
+        'd_id':myid
         }
     return render(request,'labeh.html',context)
 
@@ -112,3 +115,9 @@ def deleting(request,d_id):
         }
     return render(request,'labeh.html',context)
 
+def labeh_list_view(request):
+    query = Manneh.objects.all()
+    context = {
+        'labeh':query
+        }
+    return render(request,'manneh/lab.html',context)
