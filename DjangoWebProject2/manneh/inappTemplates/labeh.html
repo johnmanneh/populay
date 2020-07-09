@@ -48,12 +48,22 @@
             {{rawform.as_p}}
       <input  type="submit" value="Save" />
     </form>
+    <div
+         style="align-content:center; background-color:green"
+         >
 
     {% block content%}
     {{obj.firstname}}
     {{obj.surname}}
     {%endblock%}
 
+    </div>
+     <p>Deleting from database </p>
+    <form action="../delete/{{d_id}}" method="post">
+       {%  csrf_token %}
+        <h1>Do you want to delete "{{ la.surname }}"</h1>
+      <input  type="submit" value="yes" /><a href="../">Cancel</a>
+    </form>
 </body>
 </html>
  

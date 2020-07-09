@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="manneh\inappTemplates\labeh.html" />
+    <Content Include="manneh\templates\manneh\lab.html" />
     <Content Include="manneh\templates\manneh\index.html" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />

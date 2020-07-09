@@ -1,5 +1,5 @@
 from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponseRedirect
 from manneh.models import Manneh
 from manneh.forms import MannehForm,RawMannehForm,PassingFormInstance
@@ -70,7 +70,7 @@ def mannehformview2(request):
     return render(request,'labeh.html',context)
 
 #################
-
+#Changing object in the database.. Editing 
 def backend3(request):
    initial_data = {
        'surname':'This is my name'
@@ -84,13 +84,31 @@ def backend3(request):
      }
 
    return render(request,'labeh.html',context)
-
-def dynamic(request,id):
+##############################
+#get data from database through URL id
+def dynamic(request,myid):
     try:
-        obj = Manneh.objects.get(id=id)
-    except Manneh.DoesNotExist:
+        obj = Manneh.objects.get(id=myid)
+    except Manneh.DoesNotExist:# handling missing object...
         raise Http404
     context = {
         'obj' : obj
         }
     return render(request,'labeh.html',context)
+
+######################
+#deleting object in database
+def deleting(request,d_id):
+    try:
+        la = Manneh.objects.get(id=d_id)
+        if request.method =='POST':
+            la.delete()
+            return redirect('../')#after del goto home
+    except Manneh.DoesNotExist:# handling missing object...
+        raise Http404
+    context = {
+       'la' : la,
+       'd_id':d_id
+        }
+    return render(request,'labeh.html',context)
+

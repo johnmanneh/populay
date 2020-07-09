@@ -24,7 +24,8 @@ urlpatterns = [
     url(r'^backend$', manneh.views.backend, name='backend'),
     url(r'^backend2$', manneh.views.backend2, name='backend2'),
     url(r'^backend3$', manneh.views.backend3, name='backend3'),
-    url(r'^dynamic/(?P<id>\d+)$', manneh.views.dynamic, name='dynamic'),
+    url(r'^dynamic/(?P<myid>\d+)$', manneh.views.dynamic, name='dynamic'),
+    url(r'^delete/(?P<d_id>\d+)$', manneh.views.deleting, name='delete'),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
     # Uncomment the admin/doc line below to enable admin documentation:
